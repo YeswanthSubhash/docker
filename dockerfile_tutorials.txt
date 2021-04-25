@@ -1,0 +1,5 @@
+1.Place the docker file into the folder
+2.Build the docker 
+	docker build -t <image name> .
+3.Run the docker image
+	docker run <image name>

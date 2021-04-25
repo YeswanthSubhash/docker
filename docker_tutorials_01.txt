@@ -1,0 +1,88 @@
+1.To list down the docker images
+docker images
+
+2.To list down the running containers
+docker ps
+
+3.To get the docker images from docker hub
+docker pull <image name>
+eg:docker pull ubuntu:latest
+
+4.To run the docker image
+docker run -ti ubuntu:latest 
+(-ti for interactive)
+
+5.To list all containers
+docker ps -a
+
+6.To list the last container to exit
+docker ps -last
+
+7.To create an Image from Container
+docker commit <containerid> <new_name>
+
+8.To name the Image
+docker tag <sha id> <name>
+docker tag sha256:445052fc80c3150a1a38df72c8a81f1687f5edde30d5e1f4ce4cd081cb0d7c9d my-image
+
+9.To run the image
+docker run -ti <image name>
+
+10.Easy way to create Image
+docker commit <name of the container> <new name to given>
+eg:docker commit sad_elgamal my-image-2
+
+11.To remove the container after finishes the process
+docker run --rm -ti ubuntu:latest sleep 5
+(After 5 seconds its remove the container)
+
+12.To detach the container 
+docker run -d -ti <image id>
+
+13.To attach a running container
+docker attach <container name>
+
+14.To access the process in a running conatiner
+docker exec -ti <conatiner name>
+
+15.To check the output of the conatiner
+docker logs <container name>
+
+16.Exposing Ports
+
+Create an echo server
+
+	-docker run -ti -p 45678:45678  -p 45679:45679 --name echo-server ubuntu:latest
+	-docker run -ti <image name> eg:ubuntu:latest [install ntecat inside docker if not available]
+	-# nc -lp 45678 | nc -lp 45679
+	
+	-docker run -ti <image name>
+	-#nc ip address 45678
+	
+	-docker run -ti <image name>
+	-#nc ip address 45679
+	
+17.To Stop the conatiner
+docker stop <container name>
+
+
+18.Dynamic Ports
+
+ -docker run -ti -p 45678  -p 45679 --name echo-server ubuntu:latest
+ -docker port echo-server
+ 
+19. UDP Ports
+
+
+20 Docker networking
+ -docker network create learning
+ 
+ -docker run --rm -ti --net learning --name catserver ubuntu:latest
+ -docker run --rm -ti --net learning --name dogserver ubuntu:latest
+ 
+ 
+21 To delete docker images
+ -docker rmi <image name>
+ 
+ 
+
